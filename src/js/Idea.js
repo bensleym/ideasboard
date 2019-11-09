@@ -14,7 +14,6 @@ class Idea extends Component {
     const handleInput = document.querySelector(
       `[data-${handle}-input-id="${handleId}"]`
     );
-    console.log(handle);
     this.handleEvent(event, handleInput);
     handleInput.focus();
   }
@@ -57,61 +56,68 @@ class Idea extends Component {
   render() {
     return (
       <article className={styles.idea}>
-        <div className={styles.ideaContent}>
-          <h3
-            className={[styles.ideaShow, styles.ideaTitle].join(" ")}
-            data-id={this.state.id}
-            data-title-id={this.state.id}
-            onClick={event => {
-              this.handleEdit(event, "title");
-            }}
-          >
-            {this.state.title}
-          </h3>
-          <input
-            type="text"
-            className={[styles.ideaHide, styles.ideaInput].join(" ")}
-            name="title"
-            value={this.state.title}
-            data-title-input-id={this.state.id}
-            data-id={this.state.id}
-            onChange={event => {
-              this.handleChange(event, "title");
-            }}
-            onBlur={event => {
-              this.handleBlur(event, "title");
-            }}
-          />
-          <p
-            className={styles.ideaShow}
-            data-id={this.state.id}
-            data-description-id={this.state.id}
-            onClick={event => {
-              this.handleEdit(event, "description");
-            }}
-          >
-            {this.state.description}
-          </p>
-          <textarea
-            className={[styles.ideaHide, styles.ideaTextarea].join(" ")}
-            value={this.state.description}
-            data-id={this.state.id}
-            data-description-input-id={this.state.id}
-            name="description"
-            maxLength="140"
-            onChange={event => {
-              this.handleChange(event, "description");
-            }}
-            onBlur={event => {
-              this.handleBlur(event, "description");
-            }}
-          ></textarea>
+        <button
+          className={styles.ideaDelete}
+          data-delete-id={this.state.id}
+          onClick={event => {
+            this.props.onDelete(event);
+          }}
+        >
+          Delete
+        </button>
+        <h3
+          className={[styles.ideaShow, styles.ideaTitle].join(" ")}
+          data-id={this.state.id}
+          data-title-id={this.state.id}
+          onClick={event => {
+            this.handleEdit(event, "title");
+          }}
+        >
+          {this.state.title}
+        </h3>
+        <input
+          type="text"
+          className={[styles.ideaHide, styles.ideaInput].join(" ")}
+          name="title"
+          value={this.state.title}
+          data-title-input-id={this.state.id}
+          data-id={this.state.id}
+          onChange={event => {
+            this.handleChange(event, "title");
+          }}
+          onBlur={event => {
+            this.handleBlur(event, "title");
+          }}
+        />
+        <p
+          className={styles.ideaShow}
+          data-id={this.state.id}
+          data-description-id={this.state.id}
+          onClick={event => {
+            this.handleEdit(event, "description");
+          }}
+        >
+          {this.state.description}
+        </p>
+        <textarea
+          className={[styles.ideaHide, styles.ideaTextarea].join(" ")}
+          value={this.state.description}
+          data-id={this.state.id}
+          data-description-input-id={this.state.id}
+          name="description"
+          maxLength="140"
+          onChange={event => {
+            this.handleChange(event, "description");
+          }}
+          onBlur={event => {
+            this.handleBlur(event, "description");
+          }}
+        ></textarea>
 
-          <p className={styles.ideaCreated}>
-            <span data-created-at={this.state.id}>Created At:</span>
-            {this.state.createdAt}
-          </p>
-        </div>
+        <p className={styles.ideaCreated}>
+          <span data-created-at={this.state.id}>Created At:</span>
+          {this.state.createdAt}
+        </p>
       </article>
     );
   }

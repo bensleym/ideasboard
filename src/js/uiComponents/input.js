@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import styles from "../../css/idea/ideaCreate.module.css";
+import styles from "../../css/uiComponents/input.module.css";
 
 class Input extends Component {
   InputLabel = () => {
     return (
-      <label htmlFor={this.props.id} className={styles.ideaCreateLabel}>
+      <label htmlFor={this.props.id} className={styles.label}>
         {this.props.label}
       </label>
     );
@@ -18,7 +18,7 @@ class Input extends Component {
         <input
           type={this.props.inputType}
           id={this.props.id}
-          className={styles.ideaCreateInput}
+          className={styles[this.props.class]}
           name={this.props.name}
           onChange={onChange}
           value={this.props.value}

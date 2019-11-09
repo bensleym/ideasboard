@@ -1,10 +1,10 @@
 .idea {
-  flex-basis: 32%;
-  margin-right: 1%;
   padding: 20px;
   border: 1px solid #c6c6c6;
   margin-bottom: 10px;
   box-sizing: border-box;
+  position: relative;
+  flex: 0 0 100%;
 }
 
 .ideaTitle {
@@ -61,4 +61,24 @@
 
 .ideaTextarea:focus {
   outline: none;
+}
+
+.ideaDelete {
+  position: absolute;
+  font-size: 14px;
+  color: #0063dd;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .idea {
+    flex: 1;
+    margin-right: 1%;
+    max-width: 32%;
+    flex-basis: 32%;
+  }
 }

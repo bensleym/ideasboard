@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "../css/idea/ideaCreate.module.css";
-import Input from "./uiComponents/input";
+import Input from "./uiComponents/Input";
+import Textarea from "./uiComponents/Textarea";
 
 class IdeaCreate extends Component {
   state = {
@@ -14,7 +15,6 @@ class IdeaCreate extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
     this.teaxtAreaCounter();
-    console.log(this.state);
   };
 
   handleSubmit = event => {
@@ -45,20 +45,8 @@ class IdeaCreate extends Component {
     }
   }
 
-  Counter = () => {
-    if (this.state.charCounterShow) {
-      return (
-        <p className={styles.ideaCreateCharLength}>
-          Characters left {this.state.charCount}
-        </p>
-      );
-    }
-    return null;
-  };
-
   render() {
     const { title, description } = this.state;
-    console.log(title);
     return (
       <div className={styles.ideaCreate}>
         <form onSubmit={this.handleSubmit}>
@@ -71,20 +59,21 @@ class IdeaCreate extends Component {
             label="Title"
             onChange={this.handleChange}
             value={title}
+            class="inputStyle"
           />
 
-          <label htmlFor="ideaDescription" className={styles.ideaCreateLabel}>
-            Description
-          </label>
-          <textarea
+          <Textarea
+            value={description}
             id="ideaDescription"
-            className={styles.ideaCreateTextarea}
             name="description"
             onChange={this.handleChange}
-            value={description}
             maxLength="140"
-          ></textarea>
-          {this.state.charCounterShow ? <this.Counter /> : ""}
+            label="Description"
+            labelShow={true}
+            class="textareaFixed"
+            charCounterShow={this.state.charCounterShow}
+            charCount={this.state.charCount}
+          />
 
           <input
             type="submit"

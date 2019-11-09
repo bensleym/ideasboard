@@ -1,0 +1,18 @@
+.inputStyle {
+  display: block;
+  width: 100%;
+  padding: 20px 10px 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: #eee;
+  color: #000;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.label {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  margin: 20px 0 10px;
+}

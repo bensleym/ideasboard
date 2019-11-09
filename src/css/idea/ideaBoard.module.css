@@ -2,28 +2,67 @@
   width: 100%;
   display: flex;
   border-top: 1px solid #c6c6c6;
+  flex-wrap: wrap;
 }
 
 .ideaBoardResults {
-  max-width: 70%;
-  flex-basis: 70%;
-  border-right: 1px solid #c6c6c6;
+  max-width: 100%;
+  flex-basis: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 20px;
+  flex: 0 0 100%;
+  order: 1;
+  box-sizing: border-box;
 }
 
 .ideaBoardCreate {
-  max-width: 30%;
-  flex-basis: 30%;
+  max-width: 100%;
+  flex-basis: 100%;
+  flex: 0 0 100%;
+  order: 0;
 }
 
 .ideaBoardSelect {
-  width: 300px;
+  width: 150px;
   height: 40px;
   background: none;
   border: 1px solid #ccc;
   font-size: 16px;
-  margin: 20px 0 20px 30px;
-  border-radius: 0px;
+  margin: 20px 0 20px 20px;
+}
+
+@media screen and (min-width: 576px) {
+  .ideaBoardSelect {
+    width: 300px;
+    margin-left: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ideaBoardResults {
+    padding: 20px 10px 20px 20px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .ideaBoardResults {
+    max-width: 70%;
+    flex-basis: 70%;
+    flex: 1;
+    order: 0;
+    border-right: 1px solid #c6c6c6;
+    padding: 30px;
+  }
+
+  .ideaBoardCreate {
+    max-width: 30%;
+    flex-basis: 30%;
+    flex: 1;
+    order: 1;
+  }
+
+  .ideaBoard {
+    flex-wrap: nowrap;
+  }
 }

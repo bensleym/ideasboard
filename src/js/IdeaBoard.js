@@ -3,7 +3,7 @@ import IdeaCreate from "./IdeaCreate";
 import Idea from "./Idea";
 import styles from "../css/idea/ideaBoard.module.css";
 
-const Ideas = ({ ideas, onCreate, sortBy }) => {
+const Ideas = ({ ideas, onCreate, sortBy, onDelete }) => {
   return (
     <div>
       <select
@@ -22,7 +22,7 @@ const Ideas = ({ ideas, onCreate, sortBy }) => {
       <section className={styles.ideaBoard}>
         <div className={styles.ideaBoardResults}>
           {ideas.map(idea => (
-            <Idea {...idea} key={idea.id} />
+            <Idea {...idea} key={idea.id} onDelete={onDelete} />
           ))}
         </div>
         <div className={styles.ideaBoardCreate}>

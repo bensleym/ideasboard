@@ -11,9 +11,19 @@ export default class App extends Component {
     this.setState({ ideas: [idea, ...ideas] });
   };
 
+  handleDelete = event => {
+    const { deleteId } = event.target.dataset;
+    let ideas = this.state.ideas;
+
+    ideas = ideas.filter(idea => {
+      return idea.id !== deleteId;
+    });
+
+    this.setState({ ideas });
+  };
+
   sortBy = (event, idea) => {
     const sortBy = event.target.value;
-    console.log(sortBy);
     idea.sort((a, b) => {
       var ideaA = a[sortBy].toUpperCase();
       var ideaB = b[sortBy].toUpperCase();
@@ -21,7 +31,6 @@ export default class App extends Component {
     });
     const { ideas } = this.state;
     this.setState({ ideas: [...ideas] });
-    console.log(this.state);
   };
 
   render() {
@@ -30,6 +39,7 @@ export default class App extends Component {
       <IdeaBoard
         ideas={ideas}
         onCreate={this.handleCreate}
+        onDelete={this.handleDelete}
         sortBy={this.sortBy}
       />
     );

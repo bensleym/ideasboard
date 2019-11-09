@@ -2,39 +2,6 @@
   padding: 20px;
 }
 
-.ideaCreateLabel {
-  display: block;
-  width: 100%;
-  font-size: 18px;
-  margin: 20px 0 10px;
-}
-
-.ideaCreateInput {
-  display: block;
-  width: 100%;
-  padding: 20px 10px 20px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  background: #eee;
-  color: #000;
-  box-sizing: border-box;
-  font-size: 20px;
-}
-
-.ideaCreateTextarea {
-  display: block;
-  width: 100%;
-  padding: 20px 10px 20px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  background: #eee;
-  color: #000;
-  height: 300px;
-  box-sizing: border-box;
-  font-size: 20px;
-  resize: none;
-}
-
 .ideaCreateSubmit {
   font-size: 16px;
   width: 100%;
@@ -42,11 +9,5 @@
   background: none;
   padding: 15px 0;
   margin-top: 20px;
-}
-
-.ideaCreateCharLength {
-  padding: 0;
-  margin: 10px 0 0;
-  font-size: 12px;
-  color: #5c5c5c;
+  cursor: pointer;
 }
