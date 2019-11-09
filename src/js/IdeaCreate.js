@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "../css/idea/ideaCreate.module.css";
+import Input from "./uiComponents/input";
 
 class IdeaCreate extends Component {
   state = {
@@ -13,23 +14,23 @@ class IdeaCreate extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
     this.teaxtAreaCounter();
+    console.log(this.state);
   };
 
   handleSubmit = event => {
-    console.log(this.props);
     event.preventDefault();
 
     const { onCreate } = this.props;
     const { title, description } = this.state;
 
-    const post = {
+    const idea = {
       id: Date.now().toString(),
       title,
       description,
       createdAt: new Date().toLocaleString()
     };
 
-    onCreate(post);
+    onCreate(idea);
 
     this.setState({ title: "", description: "" });
   };
@@ -57,20 +58,19 @@ class IdeaCreate extends Component {
 
   render() {
     const { title, description } = this.state;
+    console.log(title);
     return (
       <div className={styles.ideaCreate}>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="ideaTitle" className={styles.ideaCreateLabel}>
-            Title
-          </label>
-          <input
-            type="text"
+          <Input
+            state={this.state}
             id="ideaTitle"
-            className={styles.ideaCreateInput}
+            inputType="text"
             name="title"
+            labelShow={true}
+            label="Title"
             onChange={this.handleChange}
             value={title}
-            autoFocus
           />
 
           <label htmlFor="ideaDescription" className={styles.ideaCreateLabel}>
