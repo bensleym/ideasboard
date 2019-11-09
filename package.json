@@ -1,0 +1,28 @@
+{
+  "name": "clearscore-fed-test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "16.4.0",
+    "react-dom": "16.4.0",
+    "react-scripts": "2.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build": "cd react-scripts && node bin/react-scripts.js build"
+  },
+  "devDependencies": {
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "16.4.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

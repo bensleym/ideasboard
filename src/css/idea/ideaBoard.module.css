@@ -1,0 +1,29 @@
+.ideaBoard {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #c6c6c6;
+}
+
+.ideaBoardResults {
+  max-width: 70%;
+  flex-basis: 70%;
+  border-right: 1px solid #c6c6c6;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.ideaBoardCreate {
+  max-width: 30%;
+  flex-basis: 30%;
+}
+
+.ideaBoardSelect {
+  width: 300px;
+  height: 40px;
+  background: none;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin: 20px 0 20px 30px;
+  border-radius: 0px;
+}
