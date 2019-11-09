@@ -11,7 +11,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build": "cd react-scripts && node bin/react-scripts.js build"
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "enzyme": "3.3.0",
