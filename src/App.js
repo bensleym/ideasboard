@@ -3,9 +3,22 @@ import "./App.css";
 import IdeaBoard from "./js/IdeaBoard";
 
 export default class App extends Component {
-  state = {
-    ideas: []
-  };
+  constructor() {
+    super();
+    const ideas = JSON.parse(localStorage.getItem("ideas"));
+    if (ideas) {
+      this.state = { ...ideas };
+    } else {
+      this.state = {
+        ideas: []
+      };
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("ideas", JSON.stringify(this.state));
+  }
+
   handleCreate = idea => {
     const { ideas } = this.state;
     this.setState({ ideas: [idea, ...ideas] });
@@ -37,7 +50,7 @@ export default class App extends Component {
     const { ideas } = this.state;
     return (
       <IdeaBoard
-        ideas={ideas}
+        ideas={this.state.length > 0 ? this.state : ideas}
         onCreate={this.handleCreate}
         onDelete={this.handleDelete}
         sortBy={this.sortBy}

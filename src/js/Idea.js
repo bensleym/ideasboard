@@ -25,6 +25,7 @@ class Idea extends Component {
 
   handleBlur(event, handle) {
     const handleId = event.target.dataset.id;
+
     const handleInput = document.querySelector(
       `[data-${handle}-id="${handleId}"]`
     );
@@ -32,6 +33,21 @@ class Idea extends Component {
     this.handleEvent(event, handleInput);
 
     this.createdAtUpdate(handleId);
+    this.updateLocalStoreage(event, handleId, handle);
+  }
+
+  updateLocalStoreage(event, handleId, handle) {
+    const previousState = this.props.state;
+    for (let i = 0; i < previousState.length; i += 1) {
+      if (previousState[i].id === handleId) {
+        previousState[i][handle] = event.target.value;
+        previousState[i].hasUpdated = true;
+      }
+    }
+    localStorage.setItem(
+      "ideas",
+      JSON.stringify({ ideas: [...previousState] })
+    );
   }
 
   handleEvent(event, handle) {
@@ -41,15 +57,16 @@ class Idea extends Component {
     handle.classList.add(styles.ideaShow);
   }
 
-  createdAtUpdate(id) {
+  createdAtUpdate() {
     const { title, description } = this.state;
     if (
       title.trim() !== this.props.title.trim() ||
       description.trim() !== this.props.description.trim()
     ) {
-      this.setState({ createdAt: new Date().toLocaleString() });
-      const createdAt = document.querySelector(`[data-created-at="${id}"]`);
-      createdAt.innerHTML = "Updated At:";
+      this.setState({
+        createdAt: new Date().toLocaleString(),
+        hasUpdated: true
+      });
     }
   }
 
@@ -115,7 +132,7 @@ class Idea extends Component {
         ></textarea>
 
         <p className={styles.ideaCreated}>
-          <span data-created-at={this.state.id}>Created At:</span>
+          {this.state.hasUpdated ? "Updated at:" : "Created at:"}{" "}
           {this.state.createdAt}
         </p>
       </article>
