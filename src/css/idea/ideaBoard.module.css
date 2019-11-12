@@ -25,11 +25,16 @@
 
 .ideaBoardSelect {
   width: 150px;
+  max-width: 150px;
   height: 40px;
   background: none;
   border: 1px solid #ccc;
   font-size: 16px;
   margin: 20px 0 20px 20px;
+  display: block;
+  background: url("../../img/chevron.png") 95% 15px no-repeat;
+  line-height: 1;
+  appearance: none;
 }
 
 @media screen and (min-width: 576px) {
