@@ -4,6 +4,7 @@ import Idea from "./Idea";
 import styles from "../css/idea/ideaBoard.module.css";
 
 const IdeasBoard = ({ ideas, onCreate, sortBy, onDelete }) => {
+  console.log(ideas);
   return (
     <div>
       <select

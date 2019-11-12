@@ -12,7 +12,7 @@
   padding-bottom: 10px;
   border-bottom: 1px solid #ccc;
   font-size: 18px;
-  margin-bottom: 0;
+  margin: 30px 0 0;
 }
 
 .ideaCreated {
@@ -39,7 +39,7 @@
   color: #000;
   box-sizing: border-box;
   font-size: 18px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .ideaInput:focus {
@@ -73,6 +73,17 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.ideaUpdated {
+  color: #3d9100;
+  font-size: 14px;
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  margin: 0;
+  opacity: 1;
+  transition: all 1s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {

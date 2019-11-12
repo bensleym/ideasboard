@@ -32,6 +32,7 @@ class Textarea extends Component {
           onChange={this.props.onChange}
           value={this.props.value}
           maxLength={this.props.maxLength}
+          ref={this.props.elRef}
         ></textarea>
         {this.props.charCounterShow ? <this.Counter /> : ""}
       </div>

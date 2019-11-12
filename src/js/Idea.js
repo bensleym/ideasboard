@@ -65,8 +65,25 @@ class Idea extends Component {
     ) {
       this.setState({
         createdAt: new Date().toLocaleString(),
-        hasUpdated: true
+        hasUpdated: true,
+        hasUpdatedAlert: true
       });
+    }
+  }
+
+  updatedMessage() {
+    if (this.state.hasUpdatedAlert) {
+      setTimeout(() => {
+        setTimeout(() => {
+          this.setState({ hasUpdatedAlert: false });
+        }, 4000);
+        document.getElementById("ideaUpdateAlert").style.opacity = "0";
+      }, 5000);
+      return (
+        <p className={styles.ideaUpdated} id={"ideaUpdateAlert"}>
+          Updated!
+        </p>
+      );
     }
   }
 
@@ -82,6 +99,7 @@ class Idea extends Component {
         >
           Delete
         </button>
+        {this.updatedMessage()}
         <h3
           className={[styles.ideaShow, styles.ideaTitle].join(" ")}
           data-id={this.state.id}

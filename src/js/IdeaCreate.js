@@ -11,10 +11,18 @@ class IdeaCreate extends Component {
     charCounterShow: false
   };
 
+  constructor() {
+    super();
+    this.textareaRef = React.createRef();
+  }
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    this.teaxtAreaCounter();
+
+    if (name === "description") {
+      this.teaxtAreaCounter();
+    }
   };
 
   handleSubmit = event => {
@@ -37,8 +45,8 @@ class IdeaCreate extends Component {
   };
 
   teaxtAreaCounter() {
-    const textAreaId = document.getElementById("ideaDescription");
-    const charLength = 140 - textAreaId.value.length;
+    const textAreaId = this.textareaRef;
+    const charLength = 140 - textAreaId.current.value.length;
     if (charLength <= 30) {
       this.setState({ charCount: charLength, charCounterShow: true });
     } else {
@@ -74,13 +82,12 @@ class IdeaCreate extends Component {
             class="textareaFixed"
             charCounterShow={this.state.charCounterShow}
             charCount={this.state.charCount}
+            elRef={this.textareaRef}
           />
 
-          <input
-            type="submit"
-            value="Create Idea"
-            className={styles.ideaCreateSubmit}
-          />
+          <button type="submit" className={styles.ideaCreateSubmit}>
+            Create Idea
+          </button>
         </form>
         <div id="ideas"></div>
       </div>
