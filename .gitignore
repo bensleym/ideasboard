@@ -5,3 +5,6 @@ public/
 build/
 functions/
 src/firebase.js
+.firebaserc
+firebase.json
+.firebase/*
