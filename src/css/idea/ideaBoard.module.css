@@ -32,15 +32,41 @@
   font-size: 16px;
   margin: 20px 0 20px 20px;
   display: block;
-  background: url("../../img/chevron.png") 95% 15px no-repeat;
+  background: url("../../img/chevron.png") 95% 10px no-repeat;
   line-height: 1;
   appearance: none;
+  padding-left: 10px;
+}
+
+.ideaBoardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ideaBoardTitle {
+  order: 1;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 18px 10px 0 0;
+}
+
+.ideaBoardTitleSub {
+  order: 0;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 @media screen and (min-width: 576px) {
   .ideaBoardSelect {
     width: 300px;
+    max-width: 300px;
     margin-left: 30px;
+  }
+
+  .ideaBoardTitle {
+    font-size: 22px;
+    padding: 15px 20px 0 0;
   }
 }
 

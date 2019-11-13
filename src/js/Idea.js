@@ -81,7 +81,7 @@ class Idea extends Component {
       }, 5000);
       return (
         <p className={styles.ideaUpdated} id={"ideaUpdateAlert"}>
-          Updated!
+          Okay, I love you...
         </p>
       );
     }

@@ -7,19 +7,25 @@ const IdeasBoard = ({ ideas, onCreate, sortBy, onDelete }) => {
   console.log(ideas);
   return (
     <div>
-      <select
-        className={styles.ideaBoardSelect}
-        defaultValue=""
-        onChange={event => {
-          sortBy(event, ideas);
-        }}
-      >
-        <option value="" disabled>
-          Sort by
-        </option>
-        <option value="title">Title</option>
-        <option value="createdAt">Date</option>
-      </select>
+      <hedaer className={styles.ideaBoardHeader}>
+        <h1 className={styles.ideaBoardTitle}>
+          Ideas Board.{" "}
+          <span className={styles.ideaBoardTitleSub}>What doing...</span>
+        </h1>
+        <select
+          className={styles.ideaBoardSelect}
+          defaultValue=""
+          onChange={event => {
+            sortBy(event, ideas);
+          }}
+        >
+          <option value="" disabled>
+            Sort by
+          </option>
+          <option value="title">Title</option>
+          <option value="createdAt">Date</option>
+        </select>
+      </hedaer>
       <section className={styles.ideaBoard}>
         <div className={styles.ideaBoardResults}>
           {ideas.map(idea => (
